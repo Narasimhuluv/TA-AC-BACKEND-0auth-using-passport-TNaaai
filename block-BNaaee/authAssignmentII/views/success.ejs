@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+    <style>
+        p{
+            font-size: 1.3rem;
+            color: green;
+        }
+        h2{
+            font-size: 2rem;
+        }
+        .logout{
+            font-size: 1.3rem;
+            border: 1px solid grey;
+            border-radius: 1.5rem;
+            padding: 0.4rem 1rem;
+            text-decoration: none;
+            background: none;
+
+        }
+    </style>
+</head>
+<body>
+    <h2> Authentication</h2>
+    <p>Successfully Login</p>
+    <a class= "logout" href="/logout">Logout</a>
+   <div style="text-align: center;">
+    <p><%=user.name  %> </p>
+    <img style="border-radius: 50%;" src="<%=user.photo  %> " alt="profile pic">
+    <h2><%= user.username  %> </h2>
+    <h2><%= user.email  %> </h2>
+   </div>
+</body>
+</html>
