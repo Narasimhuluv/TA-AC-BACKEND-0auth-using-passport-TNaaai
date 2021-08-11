@@ -26,7 +26,7 @@ router.get('/auth/github/callback', passport.authenticate('github', { failureRed
 
   // this is for google
 
-  router.get('/auth/google', passport.authenticate('google', { scope: ['profile'] }));
+  router.get('/auth/google', passport.authenticate('google', { scope: ['email','profile'] }));
   router.get('/auth/google/callback', passport.authenticate('google', {failureRedirect : '/failure'}), (req,res) => {
     res.redirect('/success');
   })
