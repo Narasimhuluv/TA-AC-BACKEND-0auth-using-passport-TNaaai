@@ -47,14 +47,14 @@ passport.use(new GoogleStrategy({
       console.log(profile)
     var profileData = {
         name : profile.displayName,
-        // username : profile._json.given_name,
+        username : profile._json.given_name,
         email : profile._json.email,
-        // photo : profile._json.picture,
+        photo : profile._json.picture,
     }
     // User.findOrCreate({ googleId: profile.id }, function (err, user) {
     //   return cb(err, user);
     // });
-    User.findOne({username : profile.given_name}, (err,user) => {
+    User.findOne({email : profile._json.email}, (err,user) => {
         if(err) return cb(err);
         if(!user){
             User.create(profileData, (err,addeduser) => {
@@ -62,7 +62,9 @@ passport.use(new GoogleStrategy({
                 return cb(null, addeduser)
             })
         }
-        cb(null, user)
+        else{
+          cb(null, user)
+        }
     })
   }
 ));
